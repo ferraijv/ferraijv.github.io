@@ -4,15 +4,18 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+Hello, my name is Jacob Ferraiolo. I am a data engineer currently living in Dallas, TX. 
+I am interested in Finance, Data Engineering/Science, and various other topics at any given time.
+I decided to create this blog because I wanted to consolidate all of the projects I work on.
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+<h2> Links </h2>
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+[LinkedIn](https://www.linkedin.com/in/jacob-ferraiolo/)
+
+[Github](https://github.com/ferraijv)
+
+[Goodreads](https://www.goodreads.com/user/show/9979713-jacob-ferraiolo)
+
+This blog is created with Github pages and Jekyll. You can find the source [here.](https://github.com/ferraijv/ferraijv.github.io)
 
 
-[jekyll-organization]: https://github.com/jekyll
