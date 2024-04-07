@@ -2,7 +2,6 @@
 layout: post
 title:  "Why am I creating a blog?"
 date:   2024-04-07 12:27:46 -0500
-categories: jekyll update
 ---
 
 I have been imagining creating a blog for probably a 
