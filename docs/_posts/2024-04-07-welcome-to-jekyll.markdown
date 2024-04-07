@@ -1,29 +1,31 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
+title:  "Why am I creating a blog?"
 date:   2024-04-07 12:27:46 -0500
 categories: jekyll update
 ---
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
 
-Jekyll requires blog post files to be named according to the following format:
+I have been imagining creating a blog for probably a 
+decage now and have looked into multiple times without 
+ever pulling the trigger for several different reasons:
 
-`YEAR-MONTH-DAY-title.MARKUP`
+1. I didn't think I had anything special to say
+2. I thought I lacked the discipline to regularly post to the site
+3. I didn't want to pay the $5/year to host a site
 
-Where `YEAR` is a four-digit number, `MONTH` and `DAY` are both two-digit numbers, and `MARKUP` is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.
+Well, now I'm finally doing it, so what changed?
 
-Jekyll also offers powerful support for code snippets:
+1. I still don't think I have anything special to say, but now I'm using this blog to organize my thoughts
+2. I still might lack the discipline to continue? We will see
+3. I found out that I can host for free with Github pages
 
-{% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
-{% endhighlight %}
+I've done a lot of random projects scattered across
+the internet over the past 15 years. I have a tendency 
+to get strongly interested in one topic and dive head first into it. 
+Then, I forget about it and never touch it again. 
 
-Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
+I don't think this is inherently negative, but I want to start tackling projects
+where a short time-investment can yield results. I want this blog to serve as a 
+consolidation of all of these projects, so they aren't lost forever once I move on.
 
-[jekyll-docs]: https://jekyllrb.com/docs/home
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-talk]: https://talk.jekyllrb.com/
+
