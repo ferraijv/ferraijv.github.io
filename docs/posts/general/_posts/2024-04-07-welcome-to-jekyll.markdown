@@ -5,8 +5,8 @@ date:   2024-04-07 12:27:46 -0500
 ---
 
 I have been imagining creating a blog for probably a 
-decage now and have looked into multiple times without 
-ever pulling the trigger for several different reasons:
+decade now and have looked into multiple times without 
+ever pulling the trigger for several reasons:
 
 1. I didn't think I had anything special to say
 2. I thought I lacked the discipline to regularly post to the site
