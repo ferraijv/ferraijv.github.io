@@ -1,6 +1,9 @@
 ---
-# Feel free to add content and custom Front Matter to this file.
-# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-
 layout: home
 ---
+![Please work](assets/profile_pic.jpeg)
+<h2>
+Welcome to my blog where I will (hopefully) write
+about finance, data engineering/science, and other topics of interest
+to me.
+</h2>
