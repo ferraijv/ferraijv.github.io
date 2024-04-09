@@ -1,0 +1,153 @@
+---
+layout: post
+title:  "When is a left join not a left join?"
+date:   2024-04-08 15:20:00 -0500
+categories: data
+---
+
+<h3> Introduction </h3>
+One of the most common issues I see, even amongst experienced
+analysts and engineers, is the misuse of left joins. This post deals
+with the proper usage of join conditions vs. where constraints in left joins. I've seen
+numerous cases where getting this wrong has **cost companies thousands of dollars.**
+
+<h3> Creating sample data </h3>
+First, let's create some sample data. We will create a fact
+table called f_transactions and a dimension table called d_customer.
+If you aren't familiar with fact vs. dimension tables, [I recommend
+reading more about it here.](https://builtin.com/articles/fact-table-vs-dimension-table){:target="_blank"}
+
+The d_customer table uses a SCDT2 (slowly changing dimension type 2) which just means that the 
+fields can change over time. When this happens, new records are added
+with the new values. The effective date structure indicates which
+version of each record is active at any given time. [Read more about
+slowly changing dimensions here.](https://www.thoughtspot.com/data-trends/data-modeling/slowly-changing-dimensions-in-data-warehouse){:target="_blank"}
+{% highlight sql %}
+
+-- Table to store transaction data
+CREATE TABLE F_TRANSACTION (
+  ID INTEGER,  -- Unique identifier for the transaction
+  PRODUCT_ID INTEGER,  -- Identifier for the product involved in the transaction
+  CUSTOMER_ID INTEGER,  -- Identifier for the customer involved in the transaction
+  TRANSACTION_AMOUNT NUMERIC,  -- The amount of the transaction
+  TRANSACTION_TIMESTAMP DATETIME  -- The timestamp of the transaction
+);
+
+-- Table to store customer details
+CREATE TABLE D_CUSTOMER (
+  ID INTEGER,  -- Unique identifier for the customer
+  CUSTOMER_NAME VARCHAR(80),  -- Name of the customer
+  STATE_OF_RESIDENCE CHAR(2),  -- State code where the customer resides
+  ZIPCODE INTEGER,  -- ZIP code of the customer's residence
+  EFFECTIVE_START_DATE DATE,  -- Start date for the customer record's validity
+  EFFECTIVE_END_DATE DATE,  -- End date for the customer record's validity
+  CURR_IN BOOLEAN  -- Flag indicating if the customer is currently active
+);
+
+{% endhighlight %}
+
+Now that we have our table structure created, we can 
+go ahead and add some sample data
+
+{% highlight sql %}
+
+  INSERT INTO F_TRANSACTION (ID, PRODUCT_ID, CUSTOMER_ID, TRANSACTION_AMOUNT, TRANSACTION_TIMESTAMP ) VALUES 
+(101, 1, 201, 20.34, CURRENT_TIMESTAMP), 
+(102, 2, 201, 12.34, datetime(CURRENT_TIMESTAMP, '-2 Day')),
+(103, 3, 202, 34.97, datetime(CURRENT_TIMESTAMP, '-10 minutes')),
+(104, 6, 203, 99.65, datetime(CURRENT_TIMESTAMP, '-10 minutes')),
+(105, 2, 204, 25.36, datetime(CURRENT_TIMESTAMP, '-52 minutes')
+);
+
+INSERT INTO D_CUSTOMER (ID, CUSTOMER_NAME, STATE_OF_RESIDENCE, ZIPCODE, EFFECTIVE_START_DATE, EFFECTIVE_END_DATE, CURR_IN) VALUES 
+(201, 'Jacob Ferraiolo', 'TX', 75324, '2019-01-15', '2022-01-01', FALSE), 
+(201, 'Jacob Ferraiolo', 'VA', 23112, '2022-01-02', '9999-01-01', TRUE), 
+(202, 'Luke McDonald', 'CA', 85532, '2020-01-01', '2023-10-31', FALSE),
+(202, 'Lucas McDonald', 'CA', 32654, '2023-11-01', '9999-01-01', TRUE),
+(203, 'Melody Cherry', 'CA', 25483, '2016-01-01', '9999-01-01', TRUE),
+(204, 'Richard Folkes', 'CA', 32654, '2018-01-01', '2020-01-01', FALSE)
+;
+{% endhighlight %}
+
+<h3> Querying the data </h3>
+Great! We have our table structure and our data. Let's start
+some analysis!
+
+Let's start by querying the transaction and customer data to see what they look like.
+
+| ID   | PRODUCT_ID | CUSTOMER_ID | TRANSACTION_AMOUNT | TRANSACTION_TIMESTAMP   |
+|------|------------|-------------|--------------------|-------------------------|
+| 101  | 1          | 201         | 20.34              | 2024-04-09 01:38:51     |
+| 102  | 2          | 201         | 12.34              | 2024-04-07 01:38:51     |
+| 103  | 3          | 202         | 34.97              | 2024-04-09 01:28:51     |
+| 104  | 6          | 203         | 99.65              | 2024-04-09 01:28:51     |
+| 105  | 2          | 204         | 25.36              | 2024-04-09 00:46:51     |
+
+| ID  | CUSTOMER_NAME    | STATE_OF_RESIDENCE | ZIPCODE | EFFECTIVE_START_DATE | EFFECTIVE_END_DATE | CURR_IN |
+|-----|------------------|---------------------|---------|----------------------|--------------------|---------|
+| 201 | Jacob Ferraiolo  | TX                  | 75324   | 2019-01-15           | 2022-01-01         | 0       |
+| 201 | Jacob Ferraiolo  | VA                  | 23112   | 2022-01-02           | 9999-01-01         | 1       |
+| 202 | Luke McDonald    | CA                  | 85532   | 2020-01-01           | 2023-10-31         | 0       |
+| 202 | Lucas McDonald   | CA                  | 32654   | 2023-11-01           | 9999-01-01         | 1       |
+| 203 | Melody Cherry    | CA                  | 25483   | 2016-01-01           | 9999-01-01         | 1       |
+| 204 | Richard Folkes   | CA                  | 32654   | 2018-01-01           | 2020-01-01         | 0       |
+
+We have 5 transactions for a total of $192.66. Let's try and get aggregate transaction amount
+by state of residence of the customer. If we look at d_customer, we can see that
+there is no currently active customer_id = 204. This could be a data quality issue
+or some legitimate business reason. We don't want to entirely exclude this analysis
+for our report, so let's bucket it under 'missing' for now.
+
+{% highlight sql %}
+SELECT COALESCE(C.STATE_OF_RESIDENCE, 'Missing'), SUM(TRANSACTION_AMOUNT)
+FROM F_TRANSACTION T
+LEFT JOIN D_CUSTOMER C
+  ON T.CUSTOMER_ID = C.ID
+ WHERE CURR_IN
+ GROUP BY COALESCE(C.STATE_OF_RESIDENCE, 'Missing');
+{% endhighlight %}
+
+Results:
+
+| State_of_Residence | Total_Transaction_Amount |
+|--------------------|--------------------------|
+| CA                 | 134.62                   |
+| VA                 | 32.68                    |
+
+The California and Virginia numbers look correct, but where
+did the transaction with missing customer details go?
+
+If we revisit our code, we can see that we are filtering on
+curr_in. So, it will only return join results where the curr_in
+field is true -- this does not include results where curr_in is null.
+So, we have essentially converted our LEFT JOIN into an inner join
+excluding all transactions that don't have a matching active customer
+record.
+
+So, how can we include the transaction with missing customer
+details?
+
+{% highlight sql %}
+SELECT COALESCE(C.STATE_OF_RESIDENCE, 'Missing') state_of_residence, SUM(TRANSACTION_AMOUNT) total_transaction_amount
+FROM F_TRANSACTION T
+LEFT JOIN D_CUSTOMER C
+  ON T.CUSTOMER_ID = C.ID
+  AND  CURR_IN
+GROUP BY COALESCE(C.STATE_OF_RESIDENCE, 'Missing');
+{% endhighlight %}
+ 
+If we move the CURR_IN filter to the LEFT JOIN condition instead
+of the WHERE constraint, we will only be joining on d_customer records
+where curr_in is true and keeping all transactions.
+
+| State_of_Residence | Total_Transaction_Amount |
+|--------------------|--------------------------|
+| CA                 | 134.62                   |
+| Missing            | 25.36                    |
+| VA                 | 32.68                    |
+
+<h3> Conclusion </h3>
+
+In this post we have demonstrated a common issue when writing LEFT JOIN queries. We
+have shown that, when you have a LEFT JOIN with a WHERE constraint on a right-hand table,
+you are effectively writing an INNER JOIN. 
