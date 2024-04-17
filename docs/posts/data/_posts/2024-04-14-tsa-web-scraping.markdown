@@ -7,7 +7,11 @@ categories: data
 
 ![trading_bot](/assets/tsa_trading_bot_part_1.png)
 
-<h3> Introduction </h3>
+<h2> Overview </h2>
+* test
+{:toc}
+
+### Introduction
 This is a 5 part series on building a trading bot for next week's TSA traffic market on 
 Kalshi. We will be covering the following:
 
@@ -22,7 +26,7 @@ Kalshi. We will be covering the following:
 * Part 5: Setting up automated trading on Kalshi
 
 
-<h3> What is Kalshi? </h3>
+### What is Kalshi? 
 [Kalshi](https://www.kalshi.com/sign-up/?referral=c9d2b0f1-b339-4878-b61c-65c4e7002b51) is a 
 prediction market platform where users trade contracts based on 
 the likelihood of real-world events. It offers markets in politics, finance, 
@@ -30,9 +34,9 @@ and current events, allowing users to buy and sell contracts to express their
 views and potentially profit from accurate predictions. We will talk more about 
 how Kalshi works in a later section. 
 
-<h3> Part 1: Scraping TSA Data </h3>
+### Part 1: Scraping TSA Data
 
-<h4> The data </h4>
+#### The data 
 The first thing we need to build any model is data, so 
 let's create a process to quickly retrieve the historical
 TSA volume data. The data is updated daily [here.](https://www.tsa.gov/travel/passenger-volumes)
@@ -48,7 +52,7 @@ this is easy to do with Python.
 
 [![TSA Data](/assets/tsa_data_screenshot.png)](https://www.tsa.gov/travel/passenger-volumes)
 
-<h4> The web scraper </h4>
+#### The web scraper
 We could retrieve the html and parse it for the table 
 and convert this to a dataframe, but pandas has done all
 this work for us. Using the pandas library, we can get this
@@ -203,7 +207,7 @@ def fetch_all_tsa_data():
 
 From here, we can save the dataframe as a csv to later usage.
 
-<h3> Conclusion </h3>
+### Conclusion 
 In the first part of this series, we discussed the overall
 goal of creating a TSA traffic prediction model to (hopefully) make 
 money on binary contract markets. We successfully built a webscraper
@@ -213,18 +217,18 @@ In upcoming posts, we will enhance the model with supplementary data,
 discuss evaluation methods, and put the model to the test by
 setting up a live trading bot.
 
-<h3> Ways to improve this code </h3>
+### Ways to improve this code
 If you want to follow along and add some extra functionality, here are a few areas to expand on:
-- **Additional logging functionality**
+#### Additional logging functionality
 
 In any live system, logging can make debugging more efficient. You could expand 
 on the logging in the code examples and save the files for later analysis
-- **Error handling**
+#### Error handling
 
 The above code does not implement any error handling. This leaves it susceptible to breaking down
 from small changes in inputs or external formatting changes. Error handling would make the webscraper
 more robust
-- **Data quality checks**
+#### Data quality checks
 
 We did not implement any data quality checks as part of this process. If the TSA changes the format
 of their site, we could start reading in incorrect data and we wouldn't know unless it broke
