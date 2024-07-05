@@ -4,4 +4,15 @@ title: Data
 permalink: /data/
 ---
 
-[2024-04-09 - When is a left join not a left join?]({% post_url /posts/data/2024-04-09-left-join %})
+<h1>{{ page.title }}</h1>
+
+<ul>
+  {% for post in site.posts %}
+    {% if post.categories contains 'data' %}
+      <li>
+        <a href="{{ post.url }}">{{ post.title }}</a>
+        <small>{{ post.date | date: "%B %d, %Y" }}</small>
+      </li>
+    {% endif %}
+  {% endfor %}
+</ul>

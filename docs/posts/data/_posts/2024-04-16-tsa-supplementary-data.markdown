@@ -5,7 +5,7 @@ date:   2024-04-16 00:00:00 -0500
 categories: data
 toc: true
 ---
-![tsa trading bot supplementary](/assets/tsa_trading_bot_supplementary_data.png)
+![tsa trading bot supplementary](/assets/tsa_trading_bot/tsa_trading_bot_supplementary_data.png)
 
 <h2> Overview </h2>
 * test
@@ -19,7 +19,7 @@ we showed how to build a webscraper to get TSA traffic data for
 the past few years. But, we want to build the most accurate model 
 possible, so we need more data to use in our model.
 
-![TSA Traffic](/assets/tsa_traffic.png){: width="1500" }
+![TSA Traffic](/assets/tsa_trading_bot/tsa_traffic.png){: width="1500" }
 
 # Why do we need extra data? 
 
@@ -64,7 +64,7 @@ showing the past 12 months of Google Trends data for the search term "TSA wait t
 We can see large spikes around the end of November and end of December corresponding 
 with Thanksgiving and Christmas travel respectively.
 
-![TSA wait times](/assets/google_trends_screenshot.png)
+![TSA wait times](/assets/tsa_trading_bot/google_trends_screenshot.png)
 
 We will be using the [Pytrends](https://pypi.org/project/pytrends/)
 package to connect to Google Trends and pull the data.
@@ -217,7 +217,7 @@ from the Federal Reserve Bank of Dallas:
 > data available at a daily or weekly frequency. It represents the common component of 10 different 
 > daily and weekly series covering consumer behavior, the labor market and production.
 
-[![Weekly economic index](/assets/weekly_economic_index.png)](https://www.dallasfed.org/research/wei)
+[![Weekly economic index](/assets/tsa_trading_bot/weekly_economic_index.png)](https://www.dallasfed.org/research/wei)
 
 This reflects general macro trends at any given time. There seems to be little variation month to month and most 
 variation over a longer timeframe.

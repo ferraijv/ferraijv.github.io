@@ -5,7 +5,7 @@ date:   2024-04-14 00:00:00 -0500
 categories: data
 ---
 
-![trading_bot](/assets/tsa_trading_bot_part_1.png)
+![trading_bot](/assets/tsa_trading_bot/tsa_trading_bot_part_1.png)
 
 <h2> Overview </h2>
 * test
@@ -17,7 +17,7 @@ Kalshi. We will be covering the following:
 
 * Part 1: Web scraping to get historical data from the TSA site
 
-* Part 2: Finding supplementary data to help build our model
+* [Part 2: Finding supplementary data to help build our model](/posts/data/2024/04/16/tsa-supplementary-data.html)
 
 * Part 3: Building our predictive model
 
@@ -50,7 +50,7 @@ is embedded in the page's html with no easy option
 to download. So, we will have to build a web scraper. Luckily,
 this is easy to do with Python.
 
-[![TSA Data](/assets/tsa_data_screenshot.png)](https://www.tsa.gov/travel/passenger-volumes)
+[![TSA Data](/assets/tsa_trading_bot/tsa_data_screenshot.png)](https://www.tsa.gov/travel/passenger-volumes)
 
 #### The web scraper
 We could retrieve the html and parse it for the table 
