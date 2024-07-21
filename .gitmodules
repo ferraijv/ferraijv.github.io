@@ -1,0 +1,3 @@
+[submodule "kalshi"]
+	path = kalshi
+	url = https://github.com/ferraijv/kalshi.git
