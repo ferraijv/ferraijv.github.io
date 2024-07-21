@@ -2,7 +2,7 @@
 layout: post
 title:  "TSA trading bot: Part 4 - Trading rules"
 date:   2024-07-25 00:00:00 -0500
-categories: data
+categories: in-progress
 toc: true
 ---
 
