@@ -21,11 +21,9 @@
 title: Jacob Ferraiolo's Blog
 email: ferraioloj@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Jacob Ferraiolo's blog where I might make some posts eventually. Topics could
-  include finance related escapades, data engineering/science projects, or anything
-  else that I find interesting at the time
+  Data, Markets, and Analytics
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://ferraijv.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://ferraijv.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: JacobFerraiolo
 github_username:  ferraijv
 markdown: kramdown
