@@ -4,8 +4,6 @@ title: Data
 permalink: /data/
 ---
 
-<h1>{{ page.title }}</h1>
-
 <ul>
   {% for post in site.posts %}
     {% if post.categories contains 'data' %}
