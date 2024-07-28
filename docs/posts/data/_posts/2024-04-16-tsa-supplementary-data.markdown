@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "TSA trading bot: Part 2 - Supplementary data"
+title:  "TSA Prediction Market: Part 2 - Supplementary Data"
 date:   2024-04-16 00:00:00 -0500
 categories: data
 toc: true

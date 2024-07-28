@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "TSA trading bot: Part 1 - Web Scraping"
+title:  "TSA Prediction Market: Part 1 - Web Scraping"
 date:   2024-04-14 00:00:00 -0500
 categories: data
 ---
@@ -19,11 +19,13 @@ Kalshi. We will be covering the following:
 
 * [Part 2: Finding supplementary data to help build our model](/posts/data/2024/04/16/tsa-supplementary-data.html)
 
-* Part 3: Building our predictive model
+* Part 3: Exploratory data analysis
 
-* Part 4: Evaluating and fine-tuning our model
+* Part 4: Manual trading
 
-* Part 5: Setting up automated trading on Kalshi
+* Part 5: Automated trading rules
+
+* Part 6: Trading system
 
 
 ### What is Kalshi? 

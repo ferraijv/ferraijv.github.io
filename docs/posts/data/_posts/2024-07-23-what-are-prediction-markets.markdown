@@ -6,7 +6,8 @@ categories: data
 toc: true
 ---
 
-<h2> Overview </h2>
+![Prediction market cover art](/assets/what_are_prediction_markets/cover_art.png)
+<h1> Prediction Markets Explained </h1>
 * Table of contents
 {:toc}
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "TSA trading bot: Part 3 - Baseline model"
+title: "TSA Prediction Market: Part 3 - Baseline model"
 date:   2024-07-05 00:00:00 -0500
 categories: data
 toc: true
