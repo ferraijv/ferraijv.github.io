@@ -2,7 +2,7 @@
 layout: home
 ---
 ![Please work](assets/profile_pic.jpeg)
-<h1>
-Jacob Ferraiolo's Blog
-</h1>
-<h2> Recent posts by category </h2>
+
+Welcome to my blog. This is place for me to work on my personal
+projects in public. I primarily write about data, analytics,
+and markets.
