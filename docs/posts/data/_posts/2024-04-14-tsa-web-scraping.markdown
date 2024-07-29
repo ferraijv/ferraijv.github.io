@@ -19,9 +19,9 @@ Kalshi. We will be covering the following:
 
 * [Part 2: Finding supplementary data to help build our model](/posts/data/2024/04/16/tsa-supplementary-data.html)
 
-* [Part 3: Exploratory data analysis](/posts/data/2024/06/28/tsa-exploratory-analysis.html)
+* [Part 3: Exploratory data analysis](/posts/data/2024/07/05/tsa-exploratory-analysis.html)
 
-* [Part 4: Manual trading](/posts/data/2024/07/14/tsa-trading-rules.html)
+* [Part 4: Manual trading](/posts/data/2024/07/28/tsa-trading-rules.html)
 
 * Part 5: Automated trading rules **(Coming soon)**
 
