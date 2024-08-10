@@ -3,7 +3,9 @@ layout: post
 title:  "Generative AI for Data Engineers"
 date:   2024-08-08 00:00:00 -0500
 categories: data
+author: "Jacob Ferraiolo"
 toc: true
+image: "/assets/chatgpt_for_de.webp"
 ---
 ![ChatGPT for Data Engineers](/assets/chatgpt_for_de.webp){: width="500" height="500" }
 # Why should you be using ChatGPT as a data engineer?
