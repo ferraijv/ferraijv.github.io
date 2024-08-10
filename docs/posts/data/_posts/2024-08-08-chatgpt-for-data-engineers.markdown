@@ -5,7 +5,7 @@ date:   2024-08-08 00:00:00 -0500
 categories: data
 toc: true
 ---
-![ChatGPT for Data Engineers](/assets/chatgpt_for_de.webp){: width="500" }
+![ChatGPT for Data Engineers](/assets/chatgpt_for_de.webp){: width="500" height="500" }
 # Why should you be using ChatGPT as a data engineer?
 
 ChatGPT and generative AI more broadly is all the rage nowadays. It seems like every company is pivoting to become an AI company. There are claims that ChatGPT will render engineers completely obsolete, that all knowledge workers will be replaced by monthly subscription.
