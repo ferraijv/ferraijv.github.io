@@ -5,7 +5,7 @@ date:   2024-04-16 00:00:00 -0500
 categories: data
 toc: true
 ---
-![tsa trading bot supplementary](/assets/tsa_trading_bot/tsa_trading_bot_supplementary_data.png)
+![tsa trading bot supplementary](/assets/tsa_trading_bot/tsa_trading_bot_supplementary_data.png){: width="500" height="500" }
 
 <h2> Overview </h2>
 * test

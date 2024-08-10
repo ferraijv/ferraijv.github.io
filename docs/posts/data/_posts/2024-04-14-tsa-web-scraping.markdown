@@ -17,7 +17,7 @@ Kalshi. We will be covering the following:
 
 * Part 1: Web scraping to get historical data from the TSA site **(Current page)**
 
-* [Part 2: Finding supplementary data to help build our model](/posts/data/2024/04/16/tsa-supplementary-data.html)
+* [Part 2: Finding supplementary data to help build our model](/posts/data/2024/04/16/tsa-supplementary-data.html){: width="500" height="500" }
 
 * [Part 3: Exploratory data analysis](/posts/data/2024/07/05/tsa-exploratory-analysis.html)
 

@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "TSA Prediction Market: Part 3 - Baseline model"
+title:  "TSA Prediction Market: Part 3 - Baseline model"
 date:   2024-07-05 00:00:00 -0500
 categories: data
 toc: true
 ---
 
-![trading_bot](/assets/tsa_trading_bot/baseline_model_title_image.png)
+![trading_bot](/assets/tsa_trading_bot/baseline_model_title_image.png){: width="500" height="500" }
 
 <h2> Overview </h2>
 * Table of contents
