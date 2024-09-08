@@ -6,7 +6,7 @@ categories: data
 toc: true
 ---
 
-![Prediction market cover art](/assets/what_are_prediction_markets/cover_art.png){: width="500" height="500" }
+![Prediction market cover art](/assets/what_are_prediction_markets/cover_art.webp){: width="500" height="500" }
 <h1> Prediction Markets Explained </h1>
 * Table of contents
 {:toc}
@@ -35,7 +35,7 @@ price at any given time can be interpreted as the probability of this event happ
 [PredictIt](https://www.predictit.org/) is a prediction market specialzing in political outcome markets. Their 
 market for "Who will win the 2024 US Presidential Election"
 
-![us presidential election market from PredictIt](/assets/what_are_prediction_markets/predictit_us_presidential_market.png)
+![us presidential election market from PredictIt](/assets/what_are_prediction_markets/predictit_us_presidential_market.webp)
 
 As of 7/24, "the market" is giving Donald Trump a roughly 57% change of winning the 
 presidency and Harris a 45% chance. For a given candidate, market participants can purchase
@@ -82,7 +82,7 @@ Studios and networks gauge potential success of movies and shows.
 [Kalshi](kalshi.com/sign-up/?referral=c9d2b0f1-b339-4878-b61c-65c4e7002b51) for example, has offers markets 
 to predict the Rotten Tomatoes scores of upcoming movies.
 
-![Kalshi movie markets](/assets/what_are_prediction_markets/movie_markets.png)
+![Kalshi movie markets](/assets/what_are_prediction_markets/movie_markets.webp)
 
 #### Public Health
 During pandemics, prediction markets have been used to forecast the spread of diseases and the effectiveness of interventions.
@@ -109,7 +109,7 @@ Donald Trump. Previously, markets had Joe Biden with about an 80% probability of
 reacted strongly to Biden's debate performance sending Joe Biden's chances down to ~60% the night of the debate
 and down to 40% just a few days later. 
 
-[![Democratic nominee price history](/assets/what_are_prediction_markets/historical_democratic_nomination.png)](https://www.predictit.org/markets/detail/7057/Who-will-win-the-2024-Democratic-presidential-nomination)
+[![Democratic nominee price history](/assets/what_are_prediction_markets/historical_democratic_nomination.webp)](https://www.predictit.org/markets/detail/7057/Who-will-win-the-2024-Democratic-presidential-nomination)
 
 The above graphic shows the price of purchasing "yes" contracts for Biden and Harris overtime. You can see
 a clear significant drop the night of the debate.
