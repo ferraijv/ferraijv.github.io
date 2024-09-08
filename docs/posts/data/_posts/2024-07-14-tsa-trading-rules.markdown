@@ -6,7 +6,7 @@ categories: data
 toc: true
 ---
 
-![trading_bot](/assets/tsa_trading_bot/baseline_model_title_image.png){: width="500" height="500" }
+![trading_bot](/assets/tsa_trading_bot/baseline_model_title_image.webp){: width="500" height="500" }
 
 <h2> Today's post </h2>
 * Table of contents
@@ -51,7 +51,7 @@ this link.
 
 # Architecture
 
-![Trading bot architecture](/assets/tsa_trading_bot/trading_bot_simplified.jpg)
+![Trading bot architecture](/assets/tsa_trading_bot/trading_bot_simplified.webp)
 
 Our process will consist of the following components
 
