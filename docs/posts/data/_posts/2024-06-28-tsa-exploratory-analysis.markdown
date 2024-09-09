@@ -312,6 +312,18 @@ This simple rule based model seems to do surprisingly well with an RMSE reductio
 
 `RMSE: 43282.031348488825`
 
+# Distribution of residuals
+
+Here we look at another way to gauge the accuracy of our model. This
+will be important for determining how much confidence we assign 
+to these prediction when making trades. 
+
+Below is a chart showing the distribution of residuals. Specifically, we take the
+percent difference between actual TSA Volumes and our predicted value. We can see that
+about 90% of instances fall within 5 percentage points
+of our prediction. 
+
+![Distribution of residuals](/assets/tsa_trading_bot/distribution_of_percent_errors.webp)
 
 # Conclusion
 
