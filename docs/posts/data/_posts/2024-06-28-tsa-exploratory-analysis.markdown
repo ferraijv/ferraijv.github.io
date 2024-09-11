@@ -128,7 +128,7 @@ from one year ago compared to current day's traffic. This does a pretty good job
 capturing seasonality, but the previous year is regularly lower.
 
 
-`y-hat = yt`
+`y-hat = yt-1`
 
 Note: Need additional research to figure out LaTex in Github pages 
 
@@ -257,7 +257,7 @@ def get_recent_trend(tsa_data):
         'passengers_7_day_moving_average_previous_year']
 
     # Create a lagged trend feature (Use 2 weeks ago in case data isn't available for previous week
-    tsa_data['last_weeks_trend'] = tsa_data['current_trend'].shift(2)
+    tsa_data['last_weeks_trend'] = tsa_data['current_trend'].shift(7)
 
     # Generate predictions using the previous year's 7-day moving average and the lagged trend
     tsa_data['prediction'] = tsa_data['passengers_7_day_moving_average_previous_year'] * tsa_data['last_weeks_trend']
@@ -324,6 +324,32 @@ about 90% of instances fall within 5 percentage points
 of our prediction. 
 
 ![Distribution of residuals](/assets/tsa_trading_bot/distribution_of_percent_errors.webp)
+
+
+# Checking for autocorrelation
+
+## What is autocorrelation?
+
+Currently, our model applies the previous 7 day YoY (year-over-year) trend to new days. Is there any way we can further improve
+this algorithm? What if yesterday's YoY trend is abnormally low. Does that make today more likely to have another
+low YoY trend? Does yesterday's deviation from longer term trend indicate anything about today's trend? If so, 
+this is called _autocorrelation_. [Autocorrelation is the relationship between
+lagged values of a time series](https://otexts.com/fpp3/acf.html#acf)
+
+If recent trend have been a 4% increase YoY, we can expect additional days
+to be around that number. So in our case, what we really care about is 
+autocorrelation taking into account the normal trend. 
+
+## Checking the residuals
+
+![Residuals autocorrelation](/assets/tsa_trading_bot/residuals_autocorrelation.webp)
+
+Here we plot the residuals to see if there is a trend. We can see that positive
+residuals are more frequently followed by positive residuals. This implies autocorrelation
+that we can take advantage of in our model.
+
+We will adjust the YoY trend in our previous model to weight the most
+recent day's YoY trend more heavily. 
 
 # Conclusion
 

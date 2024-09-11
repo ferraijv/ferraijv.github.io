@@ -23,9 +23,7 @@ Kalshi. We will be covering the following:
 
 * [Part 4: Manual trading](/posts/data/2024/07/28/tsa-trading-rules.html)
 
-* Part 5: Automated trading rules **(Coming soon)**
-
-* Part 6: Trading system **(Coming soon)**
+* [Part 5: Automated trading bot](/posts/data/2024/09/08/kalshi-tsa-trading-automated-bot.html)
 
 
 ### What is Kalshi? 
