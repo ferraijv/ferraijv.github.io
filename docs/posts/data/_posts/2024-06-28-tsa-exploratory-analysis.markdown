@@ -348,6 +348,12 @@ Here we plot the residuals to see if there is a trend. We can see that positive
 residuals are more frequently followed by positive residuals. This implies autocorrelation
 that we can take advantage of in our model.
 
+Another chart checking for autocorrelation. Here we graph the residual
+vs the lagged residual (t-1) to check for correlation. This shows an even more
+clear illustration of the correlation.
+
+![Autocorrelation](/assets/tsa_trading_bot/residual_vs_lagged_residual.webp)
+
 We will adjust the YoY trend in our previous model to weight the most
 recent day's YoY trend more heavily. 
 
