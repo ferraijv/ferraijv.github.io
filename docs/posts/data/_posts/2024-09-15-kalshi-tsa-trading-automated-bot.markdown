@@ -381,3 +381,26 @@ there are a few things I want to follow up on here.
 - I want to implement monitoring for my bot. Anyone can check my [Kalshi account](https://kalshi.com/ideas/profiles/ferraijv) to see my progress, but I would like to make it more transparent
 - Improving the model. We implemented a pretty basic model. I would like to try to improve it to see if we can increase our accuracy
 - Add logic to account for trades in the middle of the week. Trading on a Monday when no days are factored into the weekly average is very different from trading on a Thursday when much of the week is already determined.
+
+<br>
+
+___
+
+<br>
+
+# The Series
+
+Now, that the introduction is out of the way, let's get started. Below
+are the different blog posts that are part of this series. 
+
+Please reach out if you have any feedback or want to chat.
+
+* [Part 1: Web scraping to get historical data from the TSA site](/posts/data/2024/04/14/tsa-web-scraping.html) 
+
+* [Part 2: Finding supplementary data to help build our model](/posts/data/2024/04/16/tsa-supplementary-data.html) (Note: I ended up not using this data in the model)
+
+* [Part 3: Exploratory data analysis](/posts/data/2024/07/05/tsa-exploratory-analysis.html)
+
+* [Part 4: Manual trading](/posts/data/2024/07/28/tsa-trading-rules.html)
+
+* [Part 5: Automated trading bot](/posts/data/2024/09/08/kalshi-tsa-trading-automated-bot.html)

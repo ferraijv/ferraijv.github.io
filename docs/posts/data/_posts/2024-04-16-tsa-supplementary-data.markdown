@@ -351,3 +351,25 @@ Similar to last time, we did not implement data quality checks, error handling, 
 would all increase the robustness of our project and make it easier to debug when issues inevitably arise.
 
 
+<br>
+
+___
+
+<br>
+
+# The Series
+
+Now, that the introduction is out of the way, let's get started. Below
+are the different blog posts that are part of this series. 
+
+Please reach out if you have any feedback or want to chat.
+
+* [Part 1: Web scraping to get historical data from the TSA site](/posts/data/2024/04/14/tsa-web-scraping.html) 
+
+* [Part 2: Finding supplementary data to help build our model](/posts/data/2024/04/16/tsa-supplementary-data.html) (Note: I ended up not using this data in the model)
+
+* [Part 3: Exploratory data analysis](/posts/data/2024/07/05/tsa-exploratory-analysis.html)
+
+* [Part 4: Manual trading](/posts/data/2024/07/28/tsa-trading-rules.html)
+
+* [Part 5: Automated trading bot](/posts/data/2024/09/08/kalshi-tsa-trading-automated-bot.html)
