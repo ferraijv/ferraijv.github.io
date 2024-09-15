@@ -22,7 +22,7 @@ this page.
 # The market
 
 
-![Kalshi TSA Event](/assets/tsa_trading_bot/kalshi_tsa.png)
+![Kalshi TSA Event](/assets/tsa_trading_bot/kalshi_tsa.webp)
 The specific event we are interested in is the **weekly TSA Passenger Volume market**. This market is for predicting
 the average weekly TSA passengers from Monday - Sunday every week. They offer various binary contracts with 
 different thresholds that either resolve to true or false. For example, they may offer the following contracts:
