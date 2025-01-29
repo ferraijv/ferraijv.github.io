@@ -4,41 +4,50 @@ title: About
 permalink: /about/
 ---
 
-# About
-Hello, my name is Jacob Ferraiolo. I am a senior data engineer currently living in Dallas, TX.
-I have worked as an analyst, data scientist, and now data engineer. I am interested 
-in Finance, Data Engineering/Science, and various other topics at any given time.
-I decided to create this blog because I want to consolidate all the projects I 
-work on and as well as provide a platform to organize my thoughts.
+Hello, I’m **Jacob Ferraiolo**, a **Senior Data Engineer** based in **Dallas, TX**, with a background spanning **data engineering, data science, and machine learning**. I specialize in building scalable data pipelines, optimizing data infrastructure, and applying predictive modeling to solve business problems.
 
-# Who am I?
+I created this blog as a **space to document my projects, explore new ideas, and refine my thinking**. Whether it’s algorithmic trading, AI-driven recommendations, or building efficient ETL pipelines, I enjoy working on **technical challenges that intersect with business impact**.
 
-My first job was a pricing analyst at a small auto insurance company. Fortunately,
-part of this job's training program was a brief stint in their MIS (management
-information systems) department. This gave me a chance to learn all about
-data engineering. I wrote my first lines of SQL, learned about data modeling,
-and worked with analysts to figure out how to use data to solve business
-problems.
+---
 
-Ever since that first job, I was hooked on using data to solve problems.
-From there, I worked as a data scientist for a few years before realizing
-that I needed to learn more engineering to be effective. So, I pivoted to
-data engineering and have been doing it ever since.
+<br>
 
-This experience ranging from analytics to engineering has given me a broad
-view of the data landscape. My goal with this blog is primarily
-to organize my thoughts and projects. They say writing is the best way
-to structure your thoughts, and that's what I hope to do here.
+## My Journey
+My career began as a **pricing analyst** at an auto insurance company, where I was first introduced to SQL, data modeling, and the power of data-driven decision-making. That experience sparked my interest in data science and machine learning, leading me to roles where I built recommendation systems, predictive models, and real-time data pipelines.
 
+But beyond my day job, I love tackling **side projects** that combine **finance, data science, and automation**—from **building a TSA traffic prediction bot for trading** to **creating a book recommendation system**.
 
-<h2> Links </h2>
+---
 
-[LinkedIn](https://www.linkedin.com/in/jacob-ferraiolo/)
+<br>
 
-[Github](https://github.com/ferraijv)
+## Topics I Write About
+📊 **Prediction Markets & Algorithmic Trading** – Exploring ways to beat the market with data-driven strategies.  
 
-[Goodreads](https://www.goodreads.com/user/show/9979713-jacob-ferraiolo)
+📚 **Data Engineering & ML Pipelines** – Designing **scalable workflows** using **Snowflake, Airflow, and Python**.  
 
-This blog is created with Github pages and Jekyll. You can find the source [here.](https://github.com/ferraijv/ferraijv.github.io)
+🤖 **AI & Automation** – Experimenting with **generative AI, recommendation systems, and data-driven apps**.  
 
+📈 **Business & Economics** – Understanding how data can drive business value and strategy.  
 
+---
+
+<br>
+
+## Beyond Work
+Outside of data, I’m interested in **quantitative finance, prediction markets, economics, AI, and geopolitics**. I also enjoy playing **chess, reading science fiction, and exploring new technologies**.
+
+This blog is a **collection of my experiments, insights, and projects**. If you’re into **data, markets, or AI-driven automation**, you’ll find plenty to explore here.
+
+---
+
+<br>
+
+## Find Me Elsewhere
+- **[GitHub](https://github.com/ferraijv)**
+- **[LinkedIn](https://www.linkedin.com/in/jacob-ferraiolo/)**
+- **[Goodreads](https://www.goodreads.com/user/show/9979713-jacob-ferraiolo)**
+
+This site is built using **GitHub Pages and Jekyll**. You can check out the source code **[here](https://github.com/ferraijv/ferraijv.github.io).**
+
+Let’s connect and talk **data, finance, or building cool things with AI!** 🚀
