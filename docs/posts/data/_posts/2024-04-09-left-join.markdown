@@ -3,6 +3,7 @@ layout: post
 title:  "When is a left join not a left join?"
 date:   2024-04-08 15:20:00 -0500
 categories: data
+image: /assets/placeholder.webp
 ---
 
 <h3> Introduction </h3>

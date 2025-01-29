@@ -4,6 +4,7 @@ title:  "What are prediction markets?"
 date:   2024-07-24 00:00:00 -0500
 categories: data
 toc: true
+image: /assets/what_are_prediction_markets/cover_art.webp
 ---
 
 ![Prediction market cover art](/assets/what_are_prediction_markets/cover_art.webp){: width="500" height="500" }

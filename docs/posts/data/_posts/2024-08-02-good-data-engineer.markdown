@@ -5,6 +5,7 @@ date:   2024-09-20 00:00:00 -0500
 categories: data
 author: "Jacob Ferraiolo"
 toc: true
+image: /assets/data_engineer.png
 ---
 ![Data engineer](/assets/data_engineer.png)
 <h1> Standing out as a data engineer </h1>

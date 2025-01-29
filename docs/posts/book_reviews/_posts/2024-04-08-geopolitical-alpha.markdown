@@ -2,6 +2,7 @@
 layout: post
 title:  "Geopolitical Alpha - Marko Papic"
 date:   2024-04-07 12:27:46 -0500
+image: /assets/placeholder.webp
 ---
 
 [![Geopolitical Alpha](/assets/geopolitical_alpha.jpg)](https://www.amazon.com/Geopolitical-Alpha-Investment-Framework-Predicting/dp/1119740215)

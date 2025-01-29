@@ -4,6 +4,7 @@ title: "TSA Prediction Market: Part 4 - Manual Trading"
 date:   2024-07-28 00:00:00 -0500
 categories: data
 toc: true
+image: /assets/tsa_trading_bot/baseline_model_title_image.webp
 ---
 
 ![trading_bot](/assets/tsa_trading_bot/baseline_model_title_image.webp){: width="500" height="500" }

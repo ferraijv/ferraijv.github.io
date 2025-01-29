@@ -5,7 +5,7 @@ date:   2024-12-20 00:00:00 -0500
 categories: podcast
 author: "Jacob Ferraiolo"
 toc: true
-image: "assets/inside_the_10k/inside_the_10k.webp"
+image: "/assets/inside_the_10k/inside_the_10k.webp"
 ---
 ![Inside the 10-K](/assets/inside_the_10k/inside_the_10k.webp){: width="500" height="500" }
 

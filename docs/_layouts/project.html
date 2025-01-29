@@ -1,0 +1,22 @@
+---
+layout: default
+---
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }}</title>
+  <meta name="description" content="{{ page.description }}">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+  <header>
+    <h1>{{ page.title }}</h1>
+    <p>{{ page.description }}</p>
+  </header>
+  <main>
+    <div class="content">
+      {{ content }}
+    </div>
+  </main>
+</body>
