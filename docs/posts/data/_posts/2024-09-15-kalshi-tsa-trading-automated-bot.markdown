@@ -4,6 +4,7 @@ title:  "TSA Prediction Market: Part 5 - Automated bot"
 date:   2024-09-08 00:00:00 -0500
 categories: data
 author: "Jacob Ferraiolo"
+categories: [prediction markets]
 toc: true
 image: "/assets/tsa_trading_bot/plugging_it_in.webp"
 ---

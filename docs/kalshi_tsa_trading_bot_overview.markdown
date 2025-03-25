@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: "TSA Trading Bot Series"
 permalink: /kalshi_tsa_trading_bot_overview/
 author: "Jacob Ferraiolo"

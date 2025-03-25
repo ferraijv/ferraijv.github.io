@@ -2,7 +2,7 @@
 layout: post
 title:  "TSA Prediction Market: Part 2 - Supplementary Data"
 date:   2024-04-16 00:00:00 -0500
-categories: data
+categories: [prediction markets]
 toc: true
 image: /assets/tsa_trading_bot/tsa_trading_bot_supplementary_data.png
 ---

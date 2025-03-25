@@ -2,7 +2,7 @@
 layout: post
 title:  "TSA Prediction Market: Part 1 - Web Scraping"
 date:   2024-04-14 00:00:00 -0500
-categories: data
+categories: [prediction markets]
 image: /assets/tsa_trading_bot/tsa_trading_bot_part_1.png
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title:  "Generative AI for Data Engineers"
 date:   2024-08-08 00:00:00 -0500
-categories: data
+categories: [career]
 author: "Jacob Ferraiolo"
 toc: true
 image: "/assets/chatgpt_for_de.webp"

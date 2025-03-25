@@ -15,44 +15,30 @@ layout: default
 
 <main class="home-container">
 
-  <!-- Home Featured Post Section -->
-  {%- if site.posts.size > 0 -%}
-  <section class="home-featured-post">
-    <article class="home-featured-post-card">
-      <a href="{{ site.posts.first.url | relative_url }}">
-        <img src="{{ site.posts.first.image | default: '/assets/images/default-post.webp' }}"
-             alt="{{ site.posts.first.title | escape }}"
-             class="home-featured-post-image">
-        <div class="home-featured-post-content">
-          <h2 class="home-featured-post-title">{{ site.posts.first.title }}</h2>
-          <p class="home-featured-post-excerpt">{{ site.posts.first.excerpt | strip_html | truncate: 120 }}</p>
-          <span class="home-featured-post-meta">{{ site.posts.first.date | date: "%b %-d, %Y" }}</span>
-        </div>
-      </a>
-    </article>
-  </section>
-  {%- endif -%}
+  <main class="home-container">
+    <!-- Grouped Blog Posts by Category -->
+    {% assign sorted_categories = site.categories | sort %}
+    {% for category in sorted_categories %}
+    {% if category[0] != "posts" %}
+      <section class="home-post-list-section">
+        <h2 class="home-post-list-heading">{{ category[0] | capitalize }}</h2>
+        <ul class="home-post-list">
+          {% for post in category[1] %}
+            <li class="home-post-item">
+              <a href="{{ post.url | relative_url }}" class="home-post-card">
+                <div class="home-post-card-content">
+                  <h3 class="home-post-title">{{ post.title | escape }}</h3>
+                  <p class="home-post-excerpt">{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
+                  <span class="home-post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+                </div>
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </section>
+      {% endif %}
+    {% endfor %}
 
-  <!-- Home Blog Post List -->
-  <section class="home-post-list-section">
-    <h2 class="home-post-list-heading">{{ page.list_title | default: "Recent Posts" }}</h2>
-    <ul class="home-post-list">
-      {%- for post in site.posts offset:1 -%} <!-- Offset to skip the featured post -->
-      <li class="home-post-item">
-        <a href="{{ post.url | relative_url }}" class="home-post-card">
-          <img src="{{ post.image | default: '/assets/images/default-post.webp' }}"
-               alt="{{ post.title | escape }}"
-               class="home-post-card-image">
-          <div class="home-post-card-content">
-            <h3 class="home-post-title">{{ post.title | escape }}</h3>
-            <p class="home-post-excerpt">{{ post.excerpt | strip_html | truncate: 100 }}</p>
-            <span class="home-post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-          </div>
-        </a>
-      </li>
-      {%- endfor -%}
-    </ul>
-  </section>
 
 </main>
 </div>

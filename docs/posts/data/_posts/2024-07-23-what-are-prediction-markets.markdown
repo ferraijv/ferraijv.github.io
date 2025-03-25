@@ -2,7 +2,7 @@
 layout: post
 title:  "What are prediction markets?"
 date:   2024-07-24 00:00:00 -0500
-categories: data
+categories: [prediction markets]
 toc: true
 image: /assets/what_are_prediction_markets/cover_art.webp
 ---

@@ -15,20 +15,18 @@ I created this blog as a **space to document my projects, explore new ideas, and
 ## My Journey
 My career began as a **pricing analyst** at an auto insurance company, where I was first introduced to SQL, data modeling, and the power of data-driven decision-making. That experience sparked my interest in data science and machine learning, leading me to roles where I built recommendation systems, predictive models, and real-time data pipelines.
 
-But beyond my day job, I love tackling **side projects** that combine **finance, data science, and automation**—from **building a TSA traffic prediction bot for trading** to **creating a book recommendation system**.
-
 ---
 
 <br>
 
 ## Topics I Write About
-📊 **Prediction Markets & Algorithmic Trading** – Exploring ways to beat the market with data-driven strategies.  
+**Prediction Markets & Algorithmic Trading** – Exploring ways to beat the market with data-driven strategies.  
 
-📚 **Data Engineering & ML Pipelines** – Designing **scalable workflows** using **Snowflake, Airflow, and Python**.  
+**Data Engineering & ML Pipelines** – Designing **scalable workflows** using **Snowflake, Airflow, and Python**.  
 
-🤖 **AI & Automation** – Experimenting with **generative AI, recommendation systems, and data-driven apps**.  
+**AI & Automation** – Experimenting with **generative AI, recommendation systems, and data-driven apps**.  
 
-📈 **Business & Economics** – Understanding how data can drive business value and strategy.  
+**Business & Economics** – Understanding how data can drive business value and strategy.  
 
 ---
 
@@ -50,4 +48,12 @@ This blog is a **collection of my experiments, insights, and projects**. If you�
 
 This site is built using **GitHub Pages and Jekyll**. You can check out the source code **[here](https://github.com/ferraijv/ferraijv.github.io).**
 
-Let’s connect and talk **data, finance, or building cool things with AI!** 🚀
+
+## Influences
+
+- The design of my blog is inspired by [Qwern.net](Qwern.net)
+- Matt Levine in his [Money Stuff](https://www.bloomberg.com/account/newsletters/money-stuff) newsletter
+- [Astral Codex Ten](https://www.astralcodexten.com/)
+- [LessWrong](https://www.lesswrong.com/)
+
+

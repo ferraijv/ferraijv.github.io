@@ -2,7 +2,7 @@
 layout: post
 title:  "How to stand out as a data engineer"
 date:   2024-09-20 00:00:00 -0500
-categories: data
+categories: [career]
 author: "Jacob Ferraiolo"
 toc: true
 image: /assets/data_engineer.png
