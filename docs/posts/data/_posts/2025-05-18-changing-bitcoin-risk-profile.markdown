@@ -2,13 +2,13 @@
 layout: post
 title:  "How to Use Kalshi to Change Risk Profile of Bitcoin"
 date:   2024-05-17 00:00:00 -0500
-categories: [prediction markets]
+categories: [prediction markets, cryptocurrency]
 image: /assets/placeholder.webp
 ---
 
 # Overview
 
-In this post, I'll show howto use Kalshi's Bitcoin markets to change the risk profile of Bitcoin. This allows for speculators to profit off bitcoin under a wider umbrella of outcomes. 
+In this post, I'll show howto use [Kalshi's](kalshi.com/sign-up/?referral=22442314-8e90-4c94-aed9-a3f1f78e990d) Bitcoin markets to change the risk profile of Bitcoin. This allows for speculators to profit off bitcoin under a wider umbrella of outcomes. 
 
 For example, if I hypothesize that bitcoin will either skyrocket to $200k+ or stay around the same price, I might hesitate to purchase bitcoin. This is because I am concerned about the opportunity cost of holding bitcoin when there is a high likelihood the price does not fluctuate significantly.
 
