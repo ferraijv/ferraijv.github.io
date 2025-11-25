@@ -2,36 +2,23 @@
 layout: default
 ---
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title }}</title>
-  <meta name="description" content="{{ page.description }}">
-  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-</head>
+<div class="container">
+  <header class="projects-header">
+    <h1>{{ page.title }}</h1>
+    <p class="projects-description">{{ page.description }}</p>
+  </header>
 
-<body>
-  <main class="projects-container">
-
-    <!-- Page Header -->
-    <header class="projects-header">
-      <h1 class="projects-title">{{ page.title }}</h1>
-      <p class="projects-description">{{ page.description }}</p>
-    </header>
-
-    <!-- Projects Grid -->
-    <section class="projects-grid">
-      {%- for project in site.projects -%}
-      <div class="project-card">
-        <a href="{{ project.url | relative_url }}" class="project-card-link">
-          <div class="project-card-content">
-            <h2 class="project-card-title">{{ project.title }}</h2>
-            <p class="project-card-description">{{ project.description | truncate: 200 }}</p>
-          </div>
-        </a>
-      </div>
-      {%- endfor -%}
-    </section>
-
-  </main>
-</body>
+  <section class="grid">
+    {%- for project in site.projects -%}
+    <div class="card">
+      <a href="{{ project.url | relative_url }}" class="card-link">
+        <div class="card-content">
+          <h2 class="card-title">{{ project.title }}</h2>
+          <p class="card-excerpt">{{ project.description }}</p>
+          <div class="card-footer">View Project</div>
+        </div>
+      </a>
+    </div>
+    {%- endfor -%}
+  </section>
+</div>
