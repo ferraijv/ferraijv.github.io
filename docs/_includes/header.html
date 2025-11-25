@@ -1,10 +1,20 @@
+  <header class="site-header">
+    <div class="nav-bar">
+      <a class="brand" href="{{ '/' | relative_url }}">
+        <span class="brand-mark">JF</span>
+        <div>
+          <span class="brand-title">{{ site.title }}</span>
+          <small>Notes on data, markets, and making things</small>
+        </div>
+      </a>
 
-  <header>
-    <h1>{{ site.title }}</h1>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/about/">About</a>
-      <a href="/blog/">Blog</a>
-      <a href="/projects/">Projects</a>
-    </nav>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a class="nav-link" href="{{ '/' | relative_url }}">Home</a>
+        <a class="nav-link" href="{{ '/about/' | relative_url }}">About</a>
+        <a class="nav-link" href="{{ '/blog/' | relative_url }}">Blog</a>
+        <a class="nav-link" href="{{ '/projects/' | relative_url }}">Projects</a>
+      </nav>
+
+      <a class="nav-cta" href="mailto:{{ site.email }}">Say hello</a>
+    </div>
   </header>
