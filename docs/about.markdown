@@ -8,6 +8,8 @@ Hello, I’m **Jacob Ferraiolo**, a **Senior Data Engineer** based in **Dallas, 
 
 I created this blog as a **space to document my projects, explore new ideas, and refine my thinking**. Whether it’s algorithmic trading, AI-driven recommendations, or building efficient ETL pipelines, I enjoy working on **technical challenges that intersect with business impact**.
 
+If you want the concise overview, check out my **[resume](/resume/)**.
+
 ---
 
 <br>
