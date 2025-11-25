@@ -43,6 +43,13 @@ collections:
     output: true
     permalink: /projects/:title/
 
+header_pages:
+  - index.markdown
+  - about.markdown
+  - blog.md
+  - projects.md
+  - resume.markdown
+
 
 # Exclude from processing.
 # The following items will not be processed, by default.
