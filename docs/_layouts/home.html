@@ -7,15 +7,11 @@ layout: default
     <h1 class="page-heading">{{ page.title }}</h1>
   {%- endif -%}
 
-  <main class="page-content" aria-label="Content">
-    <div class="container mx-auto px-4">
+  <div class="home-content">
       {{ content }}
-    </div>
-  </main>
+  </div>
 
-<main class="home-container">
-
-  <main class="home-container">
+  <div class="home-container">
     <!-- Grouped Blog Posts by Category -->
     {% assign sorted_categories = site.categories | sort %}
     {% for category in sorted_categories %}
@@ -38,7 +34,5 @@ layout: default
       </section>
       {% endif %}
     {% endfor %}
-
-
-</main>
+  </div>
 </div>
