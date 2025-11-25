@@ -1,14 +1,17 @@
 ---
 layout: default
 ---
-<article class="post">
+<div class="shell-inner">
+  <article class="post">
 
-  <header class="post-header">
-    <h1 class="post-title">{{ page.title | escape }}</h1>
-  </header>
+    <header class="post-header">
+      <h1 class="post-title">{{ page.title | escape }}</h1>
+      <div class="post-date">{{ page.date | date: "%b %-d, %Y" }}</div>
+    </header>
 
-  <div class="post-content">
-    {{ content }}
-  </div>
+    <div class="post-content">
+      {{ content }}
+    </div>
 
-</article>
+  </article>
+</div>

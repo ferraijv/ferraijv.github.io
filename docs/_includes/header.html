@@ -1,10 +1,14 @@
-
-  <header>
-    <h1>{{ site.title }}</h1>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/about/">About</a>
-      <a href="/blog/">Blog</a>
-      <a href="/projects/">Projects</a>
-    </nav>
+  <header class="site-header">
+    <div class="header-inner">
+        <div class="brand">
+          <a href="{{ '/' | relative_url }}">{{ site.title }}</a>
+        <small>Exploring markets, code, and curiosity</small>
+      </div>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a class="nav-link" href="{{ '/' | relative_url }}">Home</a>
+        <a class="nav-link" href="{{ '/about/' | relative_url }}">About</a>
+        <a class="nav-link" href="{{ '/blog/' | relative_url }}">Blog</a>
+        <a class="nav-link" href="{{ '/projects/' | relative_url }}">Projects</a>
+      </nav>
+    </div>
   </header>

@@ -9,16 +9,17 @@
      gtag('js', new Date());
      gtag('config', 'G-725HB2N4HL');
    </script>
- </head>
-  {%- include head.html -%}
+   {%- include head.html -%}
 </head>
 <body>
-  {%- include header.html -%}
+  <div class="site-wrapper">
+    {%- include header.html -%}
 
-  <main class="page-content">
-    {{ content }}
-  </main>
+    <main class="page-shell">
+      {{ content }}
+    </main>
 
-  {%- include footer.html -%}
+    {%- include footer.html -%}
+  </div>
 </body>
 </html>
