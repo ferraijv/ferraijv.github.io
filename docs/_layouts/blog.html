@@ -3,19 +3,28 @@ layout: default
 ---
 
 <div class="shell-inner">
-  <header class="hero" style="margin-bottom: 1.5rem;">
-    <div class="badge">Archive</div>
-    <h1>Blog posts</h1>
-    <p>Dive into essays on markets, economics, code, and experiments.</p>
-  </header>
+  <section class="hero-card" style="margin-bottom: 1.6rem;">
+    <p class="eyebrow">Archive</p>
+    <h3 style="margin-top: 0; font-size: 1.6rem;">Long-form notes and experiments</h3>
+    <div class="meta-row">
+      <span class="pill">{{ site.posts | size }} posts</span>
+      <span>Updated {{ site.time | date: "%b %-d, %Y" }}</span>
+    </div>
+    <p style="margin: 0; color: var(--muted);">Ideas on markets, code, and curiosity—collected in one stream so you can dive deep or skim what resonates.</p>
+  </section>
 
-  <div class="card-grid">
+  <div class="post-grid">
     {% for post in site.posts %}
-      <article class="card">
-        <h2 class="post-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
-        <div class="post-date">{{ post.date | date: "%b %-d, %Y" }}</div>
-        <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
-        <a href="{{ post.url | relative_url }}">Keep reading →</a>
+      <article class="post-card">
+        <div class="meta-row">
+          <span>{{ post.date | date: "%b %-d, %Y" }}</span>
+          {% if post.categories and post.categories.size > 0 %}
+            <span class="pill">{{ post.categories | first | capitalize }}</span>
+          {% endif %}
+        </div>
+        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+        <p>{{ post.excerpt | strip_html | truncatewords: 32 }}</p>
+        <a class="text-link" href="{{ post.url | relative_url }}">Keep reading →</a>
       </article>
     {% endfor %}
   </div>

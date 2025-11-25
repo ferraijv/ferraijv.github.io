@@ -1,37 +1,23 @@
 ---
 layout: default
 ---
+<div class="shell-inner">
+  <section class="hero-card" style="margin-bottom: 1.6rem;">
+    <p class="eyebrow">Build log</p>
+    <h3 style="margin-top: 0; font-size: 1.6rem;">Projects in motion</h3>
+    <p style="margin: 0; color: var(--muted);">Ideas I am turning into working things—read the write-ups or dig into the details.</p>
+  </section>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title }}</title>
-  <meta name="description" content="{{ page.description }}">
-  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-</head>
-
-<body>
-  <main class="projects-container">
-
-    <!-- Page Header -->
-    <header class="projects-header">
-      <h1 class="projects-title">{{ page.title }}</h1>
-      <p class="projects-description">{{ page.description }}</p>
-    </header>
-
-    <!-- Projects Grid -->
-    <section class="projects-grid">
-      {%- for project in site.projects -%}
-      <div class="project-card">
-        <a href="{{ project.url | relative_url }}" class="project-card-link">
-          <div class="project-card-content">
-            <h2 class="project-card-title">{{ project.title }}</h2>
-            <p class="project-card-description">{{ project.description | truncate: 200 }}</p>
-          </div>
-        </a>
-      </div>
-      {%- endfor -%}
-    </section>
-
-  </main>
-</body>
+  <div class="project-rail">
+    {%- for project in site.projects -%}
+      <article class="project-card">
+        <div class="meta-row">
+          <span class="pill">Project</span>
+        </div>
+        <h3><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h3>
+        <p>{{ project.description | default: project.excerpt | strip_html | truncatewords: 28 }}</p>
+        <a class="text-link" href="{{ project.url | relative_url }}">Open project →</a>
+      </article>
+    {%- endfor -%}
+  </div>
+</div>
