@@ -83,10 +83,25 @@
 
     pre code { padding: 0; background: none; border: 0; }
 
-    table {
+    .table-scroll {
+      display: block;
       width: 100%;
-      border-collapse: collapse;
+      max-width: 100%;
+      overflow-x: auto;
       margin: 1.5rem 0;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.02);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      -webkit-overflow-scrolling: touch;
+      padding: 0.35rem;
+    }
+
+    .table-scroll table {
+      width: auto;
+      min-width: min(100%, 720px);
+      border-collapse: collapse;
+      margin: 0;
       font-size: 0.98rem;
     }
 
@@ -94,6 +109,7 @@
       border: 1px solid var(--border);
       padding: 0.75rem 0.85rem;
       text-align: left;
+      word-break: break-word;
     }
 
     th { background: rgba(255, 255, 255, 0.05); font-weight: 700; }
@@ -405,3 +421,16 @@
       .page-shell { padding: 32px 16px 64px; }
     }
   </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.post-content table, .page-content table').forEach((table) => {
+        if (table.closest('.table-scroll')) return;
+
+        const wrapper = document.createElement('div');
+        wrapper.className = 'table-scroll';
+        table.parentNode.insertBefore(wrapper, table);
+        wrapper.appendChild(table);
+      });
+    });
+  </script>
