@@ -5,7 +5,9 @@ description: AI Impostor turns “was this written by AI?” into a social deduc
 layout: project
 ---
 
-![AI Impostor](/assets/ai_impostor/ai_impostor_screenshot.png){: width="500" height="500" }
+[![AI Impostor](/assets/ai_impostor/ai_impostor_screenshot.png){: width="500" height="500" }](https://ferraijv.pythonanywhere.com)
+
+Check out the project: [AI Impostor Site](https://ferraijv.pythonanywhere.com)
 
 
 * Table of contents

@@ -7,10 +7,6 @@ layout: project
 
 ![Kalshi predicting traffic](/assets/tsa_trading_bot/counting_airplanes.webp){: width="500" height="500" }
 
-
-* Table of contents
-{:toc}
-
 # Introduction
 Hello! This is my blog series dedicated to creating an automated trading bot for prediction markets. 
 [Kalshi](kalshi.com/sign-up/?referral=c9d2b0f1-b339-4878-b61c-65c4e7002b51) is a prediction market platform
@@ -20,7 +16,6 @@ If you just want links to the blog posts in this series you can go to the bottom
 this page.
 
 # The market
-
 
 ![Kalshi TSA Event](/assets/tsa_trading_bot/kalshi_tsa.webp)
 The specific event we are interested in is the **weekly TSA Passenger Volume market**. This market is for predicting
