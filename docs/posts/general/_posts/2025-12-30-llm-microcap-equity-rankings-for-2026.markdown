@@ -13,6 +13,50 @@ In my previous post, I prompted 5 LLMs to act as equity analysts to select 5 lon
 
 In this post, I plan on performing this same experiment on microcap stocks. Presumably, these stocks have less institutional attention due to their volume. This could lead to more inefficienies in their stock price and valuations. Since the cost of LLMs analyzing smaller equities is low, it makes sense that using LLMs to evaluate valuations for smaller cap stocks could yield alpha.
 
+# Prompt
+
+This is the prompt that was used for each model
+
+```
+
+You are a microcap equity analyst. Focus on U.S.-listed microcap stocks ($20M–$300M market cap). Using current, verifiable sources (latest filings, recent news, earnings calls if available), identify:
+
+Top 5 microcap long ideas
+
+Top 5 microcap short / avoid ideas
+
+For each company, include:
+
+Snapshot: Ticker, market cap, float, avg daily $ volume, insider & institutional ownership (if available)
+
+Business: What the company does and why it may be mispriced (neglect, complexity, illiquidity, transition)
+
+Financials: Revenue trend, margins, cash flow/burn, balance sheet strength, dilution risk
+
+Valuation: Primary multiple(s) or asset-based method, vs peers and history; what the current price implies
+
+Catalysts (3–12 months): Specific, credible events
+
+Risks / Red Flags: Governance, dilution, customer concentration, regulatory or execution risk
+
+Verdict: Bull/base/bear case and what would invalidate the thesis
+
+Portfolio Summary
+
+Sector exposure, liquidity constraints, realistic position sizing
+
+Which ideas are investable now vs watchlist
+
+Standards
+
+Cite sources
+
+Flag data gaps or low confidence
+
+Avoid promotional language or speculation
+
+```
+
 # Summary Table
 
 | Model             | Side   | Ticker   | Start Price (12/29)   |
@@ -67,6 +111,80 @@ In this post, I plan on performing this same experiment on microcap stocks. Pres
 | Grok Thinking     | Short  | MLGO     | $5.20                 |
 | Grok Thinking     | Short  | EVLV     | $6.76                 |
 | Grok Thinking     | Short  | WWW      | $17.97                |
+
+
+## LLM Review of overall results
+
+I fed the above table into Gemini to evaluate everyone's picks. Below are the results
+
+```
+Yes, there are several fascinating (and some concerning) anomalies in this data. The models display drastically different "personalities" in their selection criteria, and a few commit fundamental errors in trading logic or definitions.
+
+Here is what stands out:
+
+### 1. The "Logic Break" (Claude’s Wash Trade)
+
+**Claude Sonnet 4.5** has a critical hallucination in its portfolio.
+
+* **Long:** SLQT (SelectQuote) @ $1.37
+* **Short:** SLQT (SelectQuote) @ $1.37
+* **Result:** It is effectively betting against itself. In a real portfolio, this is a "wash," resulting in zero exposure but guaranteed losses due to transaction costs and spreads. It suggests the model didn't cross-reference its Long list against its Short list before finalizing the output.
+
+### 2. DeepSeek is Trading "Dangerous Junk"
+
+**DeepSeek** is behaving like a high-risk "degenerate" gambler compared to the other models.
+
+* **Shorting a Penny:** It is Short **PTPI** (Petros Pharmaceuticals) at **$0.01**.
+* *Why this is bad:* You generally cannot short a stock trading at 1 cent. The upside is capped (max profit is $0.01/share), but the risk is massive if the stock simply ticks up to $0.02 (100% loss) or undergoes a reverse split.
+
+
+* **Nano-Cap Focus:** Its Long picks (SMSI @ $0.58, DSY @ $0.27) are true "penny stocks," which carry significantly higher liquidity risk than the selections from other models.
+
+### 3. The Rare Consensus: OppFi (OPFI)
+
+In a list of erratic picks, there is one clear point of agreement.
+
+* **Claude** is Long OPFI.
+* **Grok** is Long OPFI.
+* **Context:** OppFi is a fintech platform facilitating credit access. Finding agreement between two different LLMs on a specific microcap is rare and suggests there may be strong recent positive data or sentiment in their training sets regarding this company.
+
+### 4. Definition Drift: What is a "Microcap"?
+
+The models disagree on what "Microcap" means (usually defined as a market cap between $50M and $300M).
+
+* **Claude Stretches Up:** It is Short **ALRM** (Alarm.com), which trades at ~$51 and has a market cap of ~$2.6 Billion. This is a **Mid-Cap** stock, not a microcap.
+* **Grok Stretches Up:** It is Shorting **PLUG** (Plug Power) and **FCEL** (FuelCell Energy). While these stocks have crashed significantly, they are likely still valued at over $1.5 Billion, placing them firmly in Small/Mid-Cap territory, not Microcap.
+
+### 5. Grok is Shorting the "Ghosts of 2021"
+
+**Grok's** short strategy is highly thematic. It is betting against the former darlings of the 2021 retail hype cycle:
+
+* **Short:** PLUG (Hydrogen hype)
+* **Short:** FCEL (Clean energy hype)
+* **Short:** EVLV (SPAC hype)
+* **Short:** WWW (Retail/Apparel)
+* **Takeaway:** Grok appears to have a bias against "unprofitable growth" or "hype" names that have fallen from grace, betting they have further to fall.
+
+### 6. ChatGPT 5.2 is the "Conservative Boomer"
+
+While DeepSeek is shorting pennies and Grok is fighting hype stocks, **ChatGPT** constructed a portfolio of boring, traditional businesses:
+
+* **Long:** HDSN (Refrigerants/HVAC)
+* **Long:** OFLX (Flexible metal hoses)
+* **Long:** PKBK & FNLC (Regional Banks)
+* **Takeaway:** It is mimicking a "Value Investor" screening for tangible assets and cash flow, avoiding the tech/biotech lottery tickets the other models chased.
+
+### Summary Table of Behaviors
+
+| Model | Personality | Key Anomaly |
+| --- | --- | --- |
+| **Claude** | The Confused Hedger | Long & Short SLQT simultaneously. |
+| **DeepSeek** | The Penny Gambler | Shorting a stock at $0.01 (PTPI). |
+| **Grok** | The Hype Slayer | Shorting former meme/hype stocks (PLUG, FCEL). |
+| **ChatGPT** | The Value Investor | Buying boring banks and industrial parts. |
+| **Gemini** | The Tech/Crypto Bear | Shorting Crypto miners (MIGI) and Holograms (HOLO). |
+
+```
 
 # LLM Output
 
