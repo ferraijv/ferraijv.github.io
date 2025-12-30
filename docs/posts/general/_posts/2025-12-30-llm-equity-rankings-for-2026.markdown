@@ -2,6 +2,7 @@
 layout: post
 title:  "LLM Equity Rankings for 2026"
 date:   2025-12-29 00:00:00
+description: Tracking long/short equity picks for 2026 from multiple LLMs, logging their theses, entry prices, and updates to see how model-driven rankings perform.
 categories: ["Markets"]
 author: "Jacob Ferraiolo"
 toc: true
