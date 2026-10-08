@@ -1,0 +1,163 @@
+name: Weekly reading and site publishing
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "docs/**"
+      - "scripts/generate_weekly_reading.py"
+      - "tests/test_weekly_reading.py"
+      - ".github/workflows/weekly-reading.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "docs/**"
+      - "scripts/generate_weekly_reading.py"
+      - "tests/test_weekly_reading.py"
+      - ".github/workflows/weekly-reading.yml"
+  schedule:
+    - cron: "17 8 * * 1"
+      timezone: "America/Los_Angeles"
+  workflow_dispatch:
+    inputs:
+      preview:
+        description: "Preview only: do not commit or publish"
+        type: boolean
+        default: true
+      include_all:
+        description: "Include all unpublished links for the first roundup"
+        type: boolean
+        default: false
+      week_start:
+        description: "Optional Monday date for a specific week: YYYY-MM-DD"
+        type: string
+        default: ""
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out changes
+        uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Test reading generator
+        run: python3 -m unittest discover -s tests -p 'test_weekly_reading.py' -v
+
+  build:
+    needs: validate
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: read
+    env:
+      PREVIEW: ${{ github.event_name == 'workflow_dispatch' && inputs.preview }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+        with:
+          ref: main
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Generate reading post
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        env:
+          RAINDROP_TOKEN: ${{ secrets.RAINDROP_TOKEN }}
+          RAINDROP_COLLECTION_ID: ${{ vars.RAINDROP_COLLECTION_ID }}
+          INCLUDE_ALL: ${{ inputs.include_all }}
+          WEEK_START: ${{ inputs.week_start }}
+        shell: bash
+        run: |
+          args=()
+          if [[ "$PREVIEW" == "true" ]]; then
+            args+=(--dry-run)
+          fi
+          if [[ "$INCLUDE_ALL" == "true" ]]; then
+            args+=(--include-all)
+          fi
+          if [[ -n "$WEEK_START" ]]; then
+            args+=(--week-start "$WEEK_START")
+          fi
+          python3 scripts/generate_weekly_reading.py "${args[@]}"
+
+      - name: Set up Ruby
+        if: env.PREVIEW != 'true'
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.1"
+          working-directory: docs
+          bundler-cache: false
+
+      - name: Install Jekyll dependencies
+        if: env.PREVIEW != 'true'
+        working-directory: docs
+        run: |
+          bundle lock --add-platform x86_64-linux
+          bundle install
+
+      - name: Configure Pages
+        if: env.PREVIEW != 'true'
+        id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Build site
+        if: env.PREVIEW != 'true'
+        working-directory: docs
+        env:
+          JEKYLL_ENV: production
+          JEKYLL_GITHUB_TOKEN: ${{ github.token }}
+          PAGES_REPO_NWO: ${{ github.repository }}
+          BASE_PATH: ${{ steps.pages.outputs.base_path }}
+        run: bundle exec jekyll build --baseurl "$BASE_PATH" --destination ../_site
+
+      - name: Commit generated post
+        if: env.PREVIEW != 'true' && github.event_name != 'push'
+        run: |
+          if [[ -d docs/_posts ]]; then
+            git add -- docs/_posts
+          fi
+          if git diff --cached --quiet; then
+            echo "No new post to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Publish weekly reading roundup"
+          git push origin HEAD:main
+
+      - name: Upload site
+        if: env.PREVIEW != 'true'
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    if: github.event_name != 'workflow_dispatch' || !inputs.preview
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy site
+        id: deployment
+        uses: actions/deploy-pages@v4

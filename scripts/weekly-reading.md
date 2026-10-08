@@ -79,7 +79,21 @@ failures return 1. Markdown previews go to stdout; preview/skip diagnostics go t
 stderr. The script never changes Raindrop bookmarks, commits files, or deploys
 the site. Those are the next workflow step.
 
-## Future GitHub Actions invocation
+## GitHub Actions setup
+
+The workflow is `.github/workflows/weekly-reading.yml`, named **Weekly reading
+and site publishing**. Merge it to `main`, then set **Settings → Pages → Build and
+deployment → Source** to **GitHub Actions**. Do not add a second suggested Pages
+workflow. A deployment triggered by the merge may fail until this setting is
+changed; run the workflow again after configuring Pages.
+
+It runs Mondays at 8:17 a.m. Pacific, selecting the previous Monday–Sunday. Site
+changes pushed to `main` also build and deploy, without generating a roundup.
+Pull requests run generator tests without accessing Raindrop or deploying.
+
+Under **Settings → Secrets and variables → Actions**, confirm `RAINDROP_TOKEN`
+is a repository Secret and `RAINDROP_COLLECTION_ID` is a repository Variable.
+The workflow passes these settings to the generator explicitly:
 
 Pass your saved settings explicitly:
 
@@ -91,6 +105,30 @@ Pass your saved settings explicitly:
   run: python3 scripts/generate_weekly_reading.py
 ```
 
-The workflow must commit generated posts so later runs retain duplicate tracking,
-then explicitly build and deploy Pages. If deployment fails after committing,
-retry deployment from that commit; the generator will skip the existing post.
+### First run
+
+1. Add at least one link to the configured Raindrop collection.
+2. Open **Actions → Weekly reading and site publishing → Run workflow**.
+3. Select branch `main`, leave **Preview only** checked, and check **Include all
+   unpublished links**. Optionally enter this week's Monday as **week_start** to
+   label the first roundup with the current week.
+4. Open the run's **build → Generate reading post** logs to inspect the Markdown.
+   Preview runs write no post, make no commit, and skip site building/deployment.
+5. Run again with the same inputs, but uncheck **Preview only**, to publish.
+6. Wait for **validate**, **build**, and **deploy** to pass, then visit `/blog/`.
+
+For normal scheduled runs, no manual inputs are needed. For a missed week, run
+manually with its Monday date, preview unchecked, and include-all unchecked.
+
+The workflow builds before committing the post. It commits only `docs/_posts`,
+then explicitly uploads and deploys the site. If deployment fails after the
+commit succeeds, rerun the workflow; the existing post is preserved and rebuilt.
+If another commit reaches `main` while the job is running, its push may be
+rejected; rerun on the latest `main`. GitHub's default token does not trigger
+another push workflow, so the automated commit does not cause a publishing loop.
+
+Raindrop HTTP 401 errors usually indicate an invalid token. A protected branch
+that blocks the bot's direct commits requires a PR-based publishing approach.
+The workflow's commit job explicitly requests `contents: write`; no personal
+GitHub access token is needed. Scheduled jobs can be delayed, and public-repo
+schedules are disabled after 60 days of repository inactivity.
